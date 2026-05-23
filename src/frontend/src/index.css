@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Space Grotesk", sans-serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-mono: "Geist Mono", monospace;
+    --radius: 0.625rem;
+
+    --background: 0.98 0.008 290;
+    --foreground: 0.18 0.015 290;
+    --card: 0.99 0.005 290;
+    --card-foreground: 0.18 0.015 290;
+    --popover: 0.99 0.005 290;
+    --popover-foreground: 0.18 0.015 290;
+
+    --primary: 0.55 0.18 190;
+    --primary-foreground: 0.99 0.005 290;
+
+    --secondary: 0.5 0.15 280;
+    --secondary-foreground: 0.99 0.005 280;
+    --muted: 0.92 0.01 290;
+    --muted-foreground: 0.45 0.01 290;
+
+    --accent: 0.45 0.22 25;
+    --accent-foreground: 0.99 0.005 25;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.99 0.005 290;
+
+    --border: 0.9 0.008 290;
+    --input: 0.9 0.008 290;
+    --ring: 0.55 0.18 190;
+
+    --chart-1: 0.65 0.22 190;
+    --chart-2: 0.6 0.18 280;
+    --chart-3: 0.7 0.16 140;
+    --chart-4: 0.5 0.15 25;
+    --chart-5: 0.75 0.14 85;
+
+    --sidebar: 0.99 0.005 290;
+    --sidebar-foreground: 0.18 0.015 290;
+    --sidebar-primary: 0.55 0.18 190;
+    --sidebar-primary-foreground: 0.99 0.005 290;
+    --sidebar-accent: 0.92 0.01 290;
+    --sidebar-accent-foreground: 0.45 0.01 290;
+    --sidebar-border: 0.9 0.008 290;
+    --sidebar-ring: 0.55 0.18 190;
+  }
+
+  .dark {
+    --background: 0.13 0.01 290;
+    --foreground: 0.96 0.006 290;
+    --card: 0.16 0.015 290;
+    --card-foreground: 0.96 0.006 290;
+    --popover: 0.2 0.015 290;
+    --popover-foreground: 0.96 0.006 290;
+
+    --primary: 0.68 0.2 190;
+    --primary-foreground: 0.13 0.01 290;
+
+    --secondary: 0.65 0.18 280;
+    --secondary-foreground: 0.13 0.01 290;
+    --muted: 0.22 0.01 290;
+    --muted-foreground: 0.6 0.006 290;
+
+    --accent: 0.58 0.24 25;
+    --accent-foreground: 0.13 0.01 290;
+
+    --destructive: 0.62 0.23 25;
+    --destructive-foreground: 0.96 0.006 290;
+
+    --border: 0.28 0.01 290;
+    --input: 0.28 0.01 290;
+    --ring: 0.68 0.2 190;
+
+    --chart-1: 0.72 0.24 190;
+    --chart-2: 0.68 0.2 280;
+    --chart-3: 0.75 0.18 140;
+    --chart-4: 0.62 0.22 25;
+    --chart-5: 0.8 0.16 85;
+
+    --sidebar: 0.16 0.015 290;
+    --sidebar-foreground: 0.96 0.006 290;
+    --sidebar-primary: 0.68 0.2 190;
+    --sidebar-primary-foreground: 0.13 0.01 290;
+    --sidebar-accent: 0.22 0.01 290;
+    --sidebar-accent-foreground: 0.6 0.006 290;
+    --sidebar-border: 0.28 0.01 290;
+    --sidebar-ring: 0.68 0.2 190;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/assets/fonts/SpaceGrotesk.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Glassmorphism effect for cards */
+  .glass {
+    background: oklch(var(--card) / 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid oklch(var(--border) / 0.2);
+  }
+
+  .glass-dark {
+    background: oklch(var(--card) / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(var(--border) / 0.3);
+  }
+
+  /* Gradient accents for emergency states */
+  .gradient-emergency {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--accent)) 0%,
+      oklch(var(--primary) / 0.3) 100%
+    );
+  }
+
+  .gradient-calm {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--primary)) 0%,
+      oklch(var(--secondary) / 0.4) 100%
+    );
+  }
+
+  /* Smooth transitions for all interactive elements */
+  .transition-healthcare {
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* Accessibility: Large touch targets for elderly users */
+  .btn-accessible {
+    @apply min-h-12 min-w-12 rounded-lg text-base font-semibold;
+  }
+
+  /* Subtle elevation shadow */
+  .shadow-soft {
+    box-shadow: 0 4px 12px oklch(var(--foreground) / 0.08);
+  }
+
+  .shadow-soft-dark {
+    box-shadow: 0 8px 24px oklch(var(--foreground) / 0.15);
+  }
+}

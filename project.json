@@ -1,0 +1,26 @@
+{
+  "overview": "A premium AI-powered elderly care platform that monitors health vitals in real-time, sends intelligent medicine reminders with voice alerts, detects emergencies automatically, and connects seniors with caregivers — all in a beautiful, accessible interface designed for trust and ease of use.",
+  "features": [
+    "Real-time AI Health Dashboard with animated vitals, charts, and wellness score",
+    "Smart Medicine Reminder System with voice synthesis and daily progress tracking",
+    "AI Emergency Detection with SOS button, full-screen alert, and emergency log",
+    "AI Health Assistant chatbot with contextual health guidance and quick actions",
+    "Caregiver Dashboard with live elderly status, emergency history, and medicine adherence",
+    "Dark/light mode, glassmorphism UI, Framer Motion animations throughout",
+    "Voice alerts via Web Speech Synthesis API for reminders and emergencies",
+    "Real-time clock, weather widget, activity tracker, and notification center"
+  ],
+  "category": "health-wellness",
+  "tags": [
+    "healthcare",
+    "elderly-care",
+    "ai",
+    "emergency",
+    "medicine-reminder",
+    "caregiver",
+    "dashboard",
+    "accessibility",
+    "react"
+  ],
+  "last_updated": "2026-05-08T10:28:25.936Z"
+}
